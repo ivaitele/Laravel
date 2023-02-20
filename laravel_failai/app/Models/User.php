@@ -84,23 +84,33 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Person::class);
     }
 
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class);
-    }
-
     public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
     }
 
-    public function getInitials(): string
+
+    public function getLatestCart(): Order
     {
-        $parts    = explode(' ', $this->person);
-        $initials = '';
-        foreach ($parts as $part) {
-            $initials .= mb_substr($part, 0, 1);
+        $status = Status::where(['name' => Order::STATUS_NEW, 'type' => 'order'])->first();
+
+        $order = $this?->orders()?->where('status_id', $status->id)?->latest()?->first();
+
+        if (!isset($order) || !$order instanceof Order) {
+            $order = new Order();
+            $order->user_id = $this->id;
+            $order->status_id = $status->id;
+            $order->save();
         }
-        return $initials;
+
+//        $order = Order::firstOrCreate(['status_id', $status->id, 'user_id' => $this->id]);
+
+        return $order;
     }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }

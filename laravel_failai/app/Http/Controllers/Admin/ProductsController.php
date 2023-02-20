@@ -30,7 +30,7 @@ class ProductsController extends Controller
     public function store(ProductRequest $request)
     {
         $product = Product::create($request->all());
-        $file = $this->fileManager->saveFile($request, 'image','img/products');
+        $file = $this->fileManager->storeFile($request, 'image','img/products');
         // Ši kodo dalis atsakinga uz paveiksliuko isaugojima produkto lenteleje
         $product->image = $file->url;
         $product->save();

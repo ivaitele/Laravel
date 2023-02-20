@@ -12,6 +12,7 @@
                 </div>
                 <div class="card-content">
                     <div>ID: {{$product->id}}</div>
+                    <p>Price: {{ $product->name }}</p>
                     <p>Price: {{ $product->price }}</p>
                     <p>Description: {{ $product->description }}</p>
                     <p>Categories: {{ $product->category->name }}</p>

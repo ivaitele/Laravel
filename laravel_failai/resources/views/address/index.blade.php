@@ -14,6 +14,7 @@
                     <th>Country</th>
                     <th>City</th>
                     <th>Street</th>
+                    <th>House_number</th>
                     <th>Actions</th>
                 </tr>
                 </thead>

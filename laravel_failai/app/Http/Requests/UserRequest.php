@@ -4,6 +4,16 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class UserUpdateRequest
+ * @package App\Http\Requests
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $password_confirmation
+ * @property string $role
+ */
+
 class UserRequest extends FormRequest
 {
     /**
@@ -11,7 +21,7 @@ class UserRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,7 +31,7 @@ class UserRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name'     => ['required', 'string', 'min:3', 'max:255'],

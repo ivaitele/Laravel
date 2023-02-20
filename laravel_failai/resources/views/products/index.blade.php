@@ -28,7 +28,6 @@
                         <td>{{$product->status->name}}</td>
                         <td>
                             <x-forms.buttons.action :model="$product" mainRoute="products" />
-                            </form>
                         </td>
                     </tr>
                 @endforeach
