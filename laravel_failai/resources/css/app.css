@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.admin-menu {
+    border: solid 1px red;
+}

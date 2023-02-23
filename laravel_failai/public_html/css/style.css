@@ -17,3 +17,20 @@ html, body {
 select {
     display: block;!important;
 }
+
+.admin-menu {
+    /*border: solid 1px red;*/
+    margin: 0;
+    background: hsl(230deg 59% 26%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+    padding: .5em;
+    font-size: .85em;
+}
+
+.admin-menu a {
+    color: white;
+}

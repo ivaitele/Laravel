@@ -8,6 +8,7 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -53,9 +54,11 @@ class UsersController extends Controller
         }
 
         $user->name = $request->name;
-        $user->email = $request->email;
+//        $user->email = $request->email;
+
         if (Auth::user()->role === User::ROLE_ADMIN){
             $user->role = $request->role;
+            $user->password = Hash::make($request->password);
         }
         $user->save();
 

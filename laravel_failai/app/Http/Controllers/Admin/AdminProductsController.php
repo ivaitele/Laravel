@@ -7,7 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Managers\FileManager;
 use App\Models\Product;
 
-class ProductsController extends Controller
+class AdminProductsController extends Controller
 {
     public function __construct(protected FileManager $fileManager)
     {
@@ -18,7 +18,7 @@ class ProductsController extends Controller
     {
         $products =  Product::query()->with(['category', 'status'])->get();
 
-        return view('products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()

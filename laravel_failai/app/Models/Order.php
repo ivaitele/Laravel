@@ -70,6 +70,10 @@ class Order extends Model
         return $this->hasMany(OrderDetail::class);
     }
 
+    public function total() {
+
+    }
+
     public function products(): HasManyThrough
     {
         return $this->hasManyThrough(

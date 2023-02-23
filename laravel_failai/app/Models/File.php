@@ -40,7 +40,9 @@ class File extends Model
         parent::boot();
 
         self::deleting(function ($value) {
-            unlink($value->path);
+            if (file_exists(public_path($value->path))) {
+                unlink($value->path);
+            }
         });
     }
 

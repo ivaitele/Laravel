@@ -5,12 +5,11 @@
 @section('content')
     <div class="row">
         <div class="col s12">
-            <pre>PUBLIC</pre>
             <h1>{{__('products.product_list')}}</h1>
+            <a href="{{route('products.create')}}" class="btn btn-primary">{{__('general.create')}}</a>
             <table class="table">
                 <thead>
                 <tr>
-                    <td></td>
                     <th>{{__('products.id')}}</th>
                     <th>{{__('products.name')}}</th>
                     <th>{{__('products.description')}}</th>
@@ -22,22 +21,13 @@
                 <tbody>
                 @foreach($products as $product)
                     <tr>
-                        <td><img src="{{$product->image}}" alt="" width="100"></td>
-
                         <td>{{$product->id}}</td>
                         <td>{{$product->name}}</td>
                         <td>{{$product->description}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->status->name}}</td>
                         <td>
-{{--                            <x-forms.buttons.action :model="$product" mainRoute="products" />--}}
-{{--                            <button>Add to cart</button>--}}
-                            <form action="{{route('product.add_to_cart')}}" method="POST">
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <input type=number name="quantity" value="1">
-                                <input type="submit" value="Į krepšelį">
-                                @csrf
-                            </form>
+                            <x-forms.buttons.action :model="$product" mainRoute="products" />
                         </td>
                     </tr>
                 @endforeach

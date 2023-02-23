@@ -13,3 +13,7 @@ html, body {
     padding: 0;
     margin: 0;
 }
+
+.admin-menu {
+    border: solid 1px red;
+}

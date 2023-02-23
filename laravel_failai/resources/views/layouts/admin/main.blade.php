@@ -15,7 +15,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/themes/light.css"/>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/shoelace.js"></script>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}" />
@@ -41,12 +40,7 @@
 </div>
 <script src="{{asset('/js/mano.js')}}"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function (){
-        var elems=document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-    })
-</script>
+
 
 </body>
 </html>
